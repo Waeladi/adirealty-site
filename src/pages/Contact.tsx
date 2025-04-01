@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import Layout from "@/components/layout/Layout";
 import Hero from "@/components/ui/hero";
@@ -103,18 +102,6 @@ const Contact = () => {
                       (303) 123-4567
                     </a>
                   </div>
-                </div>
-              </div>
-              
-              <div className="mt-12">
-                <h3 className="text-xl font-semibold text-denver-800 mb-4">Business Hours</h3>
-                <div className="grid grid-cols-2 gap-2">
-                  <div className="text-denver-700">Monday - Friday</div>
-                  <div className="text-denver-700">9:00 AM - 5:00 PM</div>
-                  <div className="text-denver-700">Saturday</div>
-                  <div className="text-denver-700">By appointment</div>
-                  <div className="text-denver-700">Sunday</div>
-                  <div className="text-denver-700">Closed</div>
                 </div>
               </div>
             </div>

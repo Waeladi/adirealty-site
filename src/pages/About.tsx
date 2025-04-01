@@ -1,4 +1,3 @@
-
 import Layout from "@/components/layout/Layout";
 import Hero from "@/components/ui/hero";
 import SectionHeader from "@/components/ui/section-header";
@@ -10,7 +9,7 @@ const About = () => {
       <Hero
         title="About ADI Realty"
         subtitle="Denver's boutique real estate consultancy firm"
-        backgroundImage="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&w=1920&q=80"
+        backgroundImage="https://images.unsplash.com/photo-1560518883-c5c77aa37d66?auto=format&fit=crop&w=1920&q=80"
       />
 
       <section className="py-16 bg-white">
