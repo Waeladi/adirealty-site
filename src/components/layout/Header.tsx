@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
-import { Building, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -20,8 +20,11 @@ const Header = () => {
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           <Link to="/" className="flex items-center gap-2" onClick={closeMenu}>
-            <Building size={28} className="text-adi-600" />
-            <span className="text-xl font-semibold text-denver-900">ADI Realty</span>
+            <img 
+              src="/lovable-uploads/c646b77d-08ac-4ddb-b58b-9f951656a5e1.png" 
+              alt="ADI Realty Logo" 
+              className="h-10 md:h-12"
+            />
           </Link>
 
           {/* Desktop Navigation */}

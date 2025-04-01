@@ -1,6 +1,6 @@
 
 import { Link } from 'react-router-dom';
-import { Building, MapPin, Mail, Phone } from 'lucide-react';
+import { MapPin, Mail, Phone } from 'lucide-react';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -12,8 +12,11 @@ const Footer = () => {
           {/* Company Info */}
           <div>
             <div className="flex items-center gap-2 mb-4">
-              <Building size={24} className="text-adi-400" />
-              <span className="text-xl font-semibold">ADI Realty</span>
+              <img 
+                src="/lovable-uploads/c646b77d-08ac-4ddb-b58b-9f951656a5e1.png" 
+                alt="ADI Realty Logo" 
+                className="h-10"
+              />
             </div>
             <p className="text-gray-300 mb-4">
               Premier real estate consultancy services in Denver, Colorado.
