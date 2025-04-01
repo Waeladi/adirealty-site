@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
@@ -23,7 +22,7 @@ const Header = () => {
             <img 
               src="/lovable-uploads/c646b77d-08ac-4ddb-b58b-9f951656a5e1.png" 
               alt="ADI Realty Logo" 
-              className="h-12 md:h-16"
+              className="h-14 md:h-18"
             />
           </Link>
 

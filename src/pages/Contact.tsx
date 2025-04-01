@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { MapPin, Mail, Phone } from 'lucide-react';
+import { MapPin, Mail } from 'lucide-react';
 import { useToast } from "@/hooks/use-toast";
 
 const Contact = () => {
@@ -56,7 +56,7 @@ const Contact = () => {
       <Hero
         title="Contact Us"
         subtitle="Reach out to discuss your real estate consulting needs"
-        backgroundImage="https://images.unsplash.com/photo-1582407947304-fd86f028f716?auto=format&fit=crop&w=1920&q=80"
+        backgroundImage="https://images.unsplash.com/photo-1560518883-f5f8c4af32fc?auto=format&fit=crop&w=1920&q=80"
       />
 
       <section className="py-16 bg-white">
@@ -88,18 +88,6 @@ const Contact = () => {
                     <h3 className="text-xl font-semibold text-denver-800 mb-1">Email</h3>
                     <a href="mailto:info@adirealty.com" className="text-denver-600 hover:text-adi-600 transition-colors">
                       info@adirealty.com
-                    </a>
-                  </div>
-                </div>
-                
-                <div className="flex items-start gap-4">
-                  <div className="bg-adi-100 p-3 rounded-full text-adi-600">
-                    <Phone size={24} />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-semibold text-denver-800 mb-1">Phone</h3>
-                    <a href="tel:+13031234567" className="text-denver-600 hover:text-adi-600 transition-colors">
-                      (303) 123-4567
                     </a>
                   </div>
                 </div>

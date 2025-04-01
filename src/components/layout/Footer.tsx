@@ -1,6 +1,6 @@
 
 import { Link } from 'react-router-dom';
-import { MapPin, Mail, Phone } from 'lucide-react';
+import { MapPin, Mail } from 'lucide-react';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -15,7 +15,7 @@ const Footer = () => {
               <img 
                 src="/lovable-uploads/c646b77d-08ac-4ddb-b58b-9f951656a5e1.png" 
                 alt="ADI Realty Logo" 
-                className="h-14"
+                className="h-16"
               />
             </div>
             <p className="text-gray-300 mb-4">
@@ -25,16 +25,10 @@ const Footer = () => {
               <MapPin size={18} />
               <span>Denver, Colorado</span>
             </div>
-            <div className="flex items-center gap-2 text-gray-300 mb-2">
+            <div className="flex items-center gap-2 text-gray-300">
               <Mail size={18} />
               <a href="mailto:info@adirealty.com" className="hover:text-adi-300 transition-colors">
                 info@adirealty.com
-              </a>
-            </div>
-            <div className="flex items-center gap-2 text-gray-300">
-              <Phone size={18} />
-              <a href="tel:+13031234567" className="hover:text-adi-300 transition-colors">
-                (303) 123-4567
               </a>
             </div>
           </div>

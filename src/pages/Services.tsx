@@ -11,7 +11,7 @@ const Services = () => {
       <Hero
         title="Our Services"
         subtitle="Comprehensive real estate consultancy tailored to your needs"
-        backgroundImage="https://images.unsplash.com/photo-1560518883-b414194496dc?auto=format&fit=crop&w=1920&q=80"
+        backgroundImage="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1920&q=80"
       />
 
       <section className="py-16 bg-white" id="consultancy">

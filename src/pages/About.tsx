@@ -9,7 +9,7 @@ const About = () => {
       <Hero
         title="About ADI Realty"
         subtitle="Denver's boutique real estate consultancy firm"
-        backgroundImage="https://images.unsplash.com/photo-1560518883-c5c77aa37d66?auto=format&fit=crop&w=1920&q=80"
+        backgroundImage="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1920&q=80"
       />
 
       <section className="py-16 bg-white">
@@ -93,7 +93,7 @@ const About = () => {
           <div className="flex flex-col md:flex-row gap-12 items-center">
             <div className="md:w-1/2">
               <img 
-                src="https://images.unsplash.com/photo-1460317442991-0ec209397118?auto=format&fit=crop&w=700&q=80" 
+                src="https://images.unsplash.com/photo-1560518883-f5f8c4af32fc?auto=format&fit=crop&w=700&q=80" 
                 alt="Denver real estate" 
                 className="rounded-lg shadow-lg object-cover w-full h-96"
               />
