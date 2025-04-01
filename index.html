@@ -13,208 +13,639 @@
     <meta property="og:title" content="ADI Realty - Denver Real Estate Consultants" />
     <meta property="og:description" content="Premier Real Estate Consultants in Denver, Colorado. Specializing in property management and rental consultancy." />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+    <meta property="og:image" content="https://adirealty.com/images/og-image.png" />
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@lovable_dev" />
-    <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
-    <link rel="icon" type="image/png" href="favicon.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
+    <meta name="twitter:image" content="https://adirealty.com/images/twitter-card.png" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
     <style>
+      :root {
+        --primary: #4d5c45;      /* Dark olive green to match logo */
+        --primary-light: #6a7a64;
+        --secondary: #525c69;    /* Dark blue-gray */
+        --accent: #d4a35a;       /* Gold accent */
+        --light: #f8f9fa;
+        --dark: #212529;
+        --gray: #6c757d;
+        --light-gray: #e9ecef;
+        --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        --border-radius: 8px;
+        --transition: all 0.3s ease;
+      }
+      
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      
+      html {
+        scroll-behavior: smooth;
+      }
+      
       body {
         font-family: 'Inter', sans-serif;
         line-height: 1.6;
-        margin: 0;
-        padding: 0;
-        color: #333;
+        color: var(--dark);
+        overflow-x: hidden;
       }
-      header {
-        background-color: #fff;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        padding: 1rem 0;
-      }
-      header .container {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-      }
-      header a:hover {
-        opacity: 0.9;
-      }
+      
       .container {
+        width: 100%;
         max-width: 1200px;
         margin: 0 auto;
-        padding: 0 1rem;
+        padding: 0 2rem;
       }
+      
+      /* Header Styles */
+      header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: #fff;
+        padding: 1rem 0;
+        box-shadow: var(--shadow);
+        z-index: 1000;
+        transition: var(--transition);
+      }
+      
+      header.scrolled {
+        padding: 0.7rem 0;
+        background-color: rgba(255, 255, 255, 0.95);
+      }
+      
+      .header-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      
+      .logo {
+        display: flex;
+        align-items: center;
+      }
+      
+      .logo img {
+        height: 60px;
+        width: auto;
+        transition: var(--transition);
+      }
+      
+      nav {
+        display: flex;
+        gap: 2rem;
+        align-items: center;
+      }
+      
+      nav a {
+        color: var(--secondary);
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 1rem;
+        transition: var(--transition);
+        position: relative;
+      }
+      
+      nav a:after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: -3px;
+        left: 0;
+        background-color: var(--primary);
+        transition: var(--transition);
+      }
+      
+      nav a:hover {
+        color: var(--primary);
+      }
+      
+      nav a:hover:after {
+        width: 100%;
+      }
+      
+      .mobile-menu-btn {
+        display: none;
+        background: none;
+        border: none;
+        cursor: pointer;
+        font-size: 1.5rem;
+        color: var(--secondary);
+      }
+      
+      /* Mobile menu styles */
+      .mobile-menu {
+        display: none; /* Hide by default on all screen sizes */
+        position: fixed;
+        top: 76px;
+        left: 0;
+        width: 100%;
+        background-color: white;
+        flex-direction: column;
+        padding: 2rem;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        z-index: 999;
+      }
+      
+      .mobile-menu.active {
+        display: flex; /* Show as flex when active */
+      }
+      
+      .mobile-menu a {
+        padding: 1rem 0;
+        border-bottom: 1px solid var(--light-gray);
+      }
+      
+      /* Hero Section */
       .hero {
-        background-image: url('https://images.unsplash.com/photo-1649972904349-6e44c42644a7?auto=format&fit=crop&w=1920&q=80');
+        height: 60vh;
+        min-height: 400px;
+        background-image: linear-gradient(rgba(33, 37, 41, 0.5), rgba(33, 37, 41, 0.5)), url('images/denver-skyline.jpg');
         background-size: cover;
-        background-position: center;
+        background-position: center bottom;
         color: white;
-        padding: 6rem 2rem;
-        text-align: center;
+        display: flex;
+        align-items: center;
+        position: relative;
+        margin-top: 76px;
       }
+      
+      .hero-content {
+        max-width: 700px;
+      }
+      
       .hero h1 {
-        font-size: 2.5rem;
-        margin-bottom: 1rem;
+        font-size: 3.5rem;
+        font-weight: 700;
+        line-height: 1.2;
+        margin-bottom: 1.5rem;
+        animation: fadeInUp 1s ease-out;
       }
+      
       .hero p {
         font-size: 1.25rem;
         margin-bottom: 2rem;
+        opacity: 0.9;
+        animation: fadeInUp 1s ease-out 0.2s backwards;
       }
+      
+      .btn-container {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+        animation: fadeInUp 1s ease-out 0.4s backwards;
+      }
+      
       .btn {
         display: inline-block;
-        background-color: #4a6da7;
+        padding: 0.8rem 2rem;
+        background-color: var(--primary);
         color: white;
-        padding: 0.75rem 1.5rem;
-        border-radius: 4px;
         text-decoration: none;
-        margin-right: 1rem;
+        border-radius: var(--border-radius);
         font-weight: 500;
+        transition: var(--transition);
+        border: none;
+        cursor: pointer;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
       }
+      
+      .btn:hover {
+        background-color: var(--primary-light);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+      }
+      
       .btn-outline {
         background-color: transparent;
-        border: 1px solid white;
+        border: 2px solid white;
       }
+      
+      .btn-outline:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+      }
+      
+      /* About Section */
       .section {
-        padding: 4rem 2rem;
+        padding: 6rem 0;
       }
+      
+      .section-header {
+        text-align: center;
+        margin-bottom: 3rem;
+      }
+      
+      .section-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: var(--primary);
+        margin-bottom: 1rem;
+      }
+      
+      .two-columns {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        align-items: center;
+      }
+      
+      .about-content p {
+        margin-bottom: 1.5rem;
+        color: var(--secondary);
+      }
+      
+      .about-image img {
+        width: 100%;
+        border-radius: var(--border-radius);
+        box-shadow: var(--shadow);
+        transform: translateY(0);
+        transition: var(--transition);
+      }
+      
+      .about-image img:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      }
+      
+      /* Services Section */
+      .services {
+        background-color: var(--light);
+      }
+      
+      .services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+      }
+      
+      .service-card {
+        background-color: white;
+        padding: 2rem;
+        border-radius: var(--border-radius);
+        box-shadow: var(--shadow);
+        transition: var(--transition);
+      }
+      
+      .service-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      }
+      
+      .service-card h3 {
+        color: var(--primary);
+        margin-bottom: 1rem;
+        font-size: 1.5rem;
+      }
+      
+      .service-card p {
+        color: var(--gray);
+      }
+      
+      /* Contact Section */
+      .contact-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+      }
+      
+      .contact-info h2 {
+        color: var(--primary);
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+      }
+      
+      .contact-info p {
+        color: var(--secondary);
+        margin-bottom: 2rem;
+      }
+      
+      .contact-detail {
+        display: flex;
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+        align-items: flex-start;
+      }
+      
+      .contact-icon {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: rgba(77, 92, 69, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--primary);
+        font-size: 1.25rem;
+      }
+      
+      .contact-form {
+        background-color: white;
+        padding: 2.5rem;
+        border-radius: var(--border-radius);
+        box-shadow: var(--shadow);
+      }
+      
+      .form-group {
+        margin-bottom: 1.5rem;
+      }
+      
+      .form-group label {
+        display: block;
+        margin-bottom: 0.5rem;
+        color: var(--secondary);
+        font-weight: 500;
+      }
+      
+      .form-control {
+        width: 100%;
+        padding: 0.75rem 1rem;
+        border: 1px solid #dee2e6;
+        border-radius: var(--border-radius);
+        transition: var(--transition);
+      }
+      
+      .form-control:focus {
+        outline: none;
+        border-color: var(--primary);
+        box-shadow: 0 0 0 3px rgba(77, 92, 69, 0.1);
+      }
+      
+      textarea.form-control {
+        resize: vertical;
+        min-height: 120px;
+      }
+      
+      /* Footer */
       footer {
-        background-color: #2d3748;
+        background-color: var(--secondary);
         color: white;
-        padding: 3rem 2rem;
+        padding: 4rem 0 2rem;
       }
-      @media (max-width: 768px) {
+      
+      .footer-logo img {
+        height: 80px;
+        margin-bottom: 1.5rem;
+      }
+      
+      .footer-info p {
+        margin-bottom: 0.5rem;
+        color: rgba(255, 255, 255, 0.8);
+      }
+      
+      /* Animations */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      
+      /* Responsive Styles */
+      @media (max-width: 992px) {
+        .two-columns, .contact-grid {
+          grid-template-columns: 1fr;
+          gap: 2rem;
+        }
+        
         .hero h1 {
+          font-size: 2.8rem;
+        }
+        
+        .section {
+          padding: 4rem 0;
+        }
+      }
+      
+      @media (max-width: 768px) {
+        .hero {
+          height: 70vh;
+        }
+        
+        .hero h1 {
+          font-size: 2.2rem;
+        }
+        
+        .hero p {
+          font-size: 1.1rem;
+        }
+        
+        nav {
+          display: none;
+        }
+        
+        .mobile-menu-btn {
+          display: block;
+        }
+        
+        .section-title {
           font-size: 2rem;
         }
-        .hero p {
-          font-size: 1rem;
+      }
+      
+      @media (max-width: 576px) {
+        .container {
+          padding: 0 1rem;
         }
+        
+        .hero h1 {
+          font-size: 1.8rem;
+        }
+        
+        .btn-container {
+          flex-direction: column;
+        }
+        
         .btn {
-          display: block;
-          margin: 0 auto 1rem;
-          width: 80%;
+          width: 100%;
           text-align: center;
-        }
-        #contact .container > div {
-          grid-template-columns: 1fr;
-        }
-        #services .container > div {
-          grid-template-columns: 1fr;
         }
       }
     </style>
   </head>
 
   <body>
-    <header>
-      <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
-        <a href="#" style="display: inline-block;">
-          <img src="images/adi-realty-logo.png" alt="ADI Realty Logo" style="height: 50px; width: auto;">
+    <header id="header">
+      <div class="container header-container">
+        <a href="#" class="logo">
+          <img src="images/adi-realty-logo.png" alt="ADI Realty Logo">
         </a>
         
-        <!-- Navigation links -->
-        <nav style="display: flex; gap: 1.5rem;">
-          <a href="#" style="text-decoration: none; color: #4a6da7; font-weight: 500;">Home</a>
-          <a href="#services" style="text-decoration: none; color: #4a6da7; font-weight: 500;">Services</a>
-          <a href="#contact" style="text-decoration: none; color: #4a6da7; font-weight: 500;">Contact</a>
+        <nav>
+          <a href="#">Home</a>
+          <a href="#services">Services</a>
+          <a href="#contact" class="btn">Contact Us</a>
         </nav>
+        
+        <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+      </div>
+      
+      <div class="mobile-menu" id="mobileMenu">
+        <a href="#">Home</a>
+        <a href="#services">Services</a>
+        <a href="#contact" class="btn" style="margin-top: 1rem;">Contact Us</a>
       </div>
     </header>
 
-    <div class="hero">
-      <h1>Denver's Premier Real Estate Consultants</h1>
-      <p>Personalized real estate consulting services with deep local knowledge and expertise</p>
-      <a href="#contact" class="btn">Get a Consultation</a>
-      <a href="#services" class="btn btn-outline">Our Services</a>
-    </div>
-
-    <div class="section container">
-      <h2>Boutique Real Estate Consultancy in Denver</h2>
-      <p>
-        At ADI Realty, we take pride in offering personalized real estate consultancy services tailored to your specific needs. 
-        Our boutique approach ensures that you receive dedicated attention and expert guidance throughout your real estate journey.
-      </p>
-      <p>
-        Whether you're looking for advice on property investments, management solutions, or rental services in the Denver area, 
-        our team of experienced consultants is here to help you make informed decisions.
-      </p>
-    </div>
-
-    <div id="services" class="section container" style="background-color: #f8fafc;">
-      <h2>Our Services</h2>
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 2rem;">
-        <div style="background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
-          <h3 style="color: #4a6da7; margin-bottom: 1rem;">Property Investment Consulting</h3>
-          <p>Expert guidance on property investments in the Denver market to maximize your returns.</p>
-        </div>
-        <div style="background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
-          <h3 style="color: #4a6da7; margin-bottom: 1rem;">Rental Management</h3>
-          <p>Comprehensive rental property management services to optimize your rental income.</p>
-        </div>
-        <div style="background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
-          <h3 style="color: #4a6da7; margin-bottom: 1rem;">Market Analysis</h3>
-          <p>Detailed analysis of the Denver real estate market to inform your property decisions.</p>
+    <section class="hero">
+      <div class="container">
+        <div class="hero-content">
+          <h1>Denver's Premier Real Estate Consultants</h1>
+          <p>Personalized real estate consulting services with deep local knowledge and expertise</p>
+          <div class="btn-container">
+            <a href="#contact" class="btn">Contact Us</a>
+            <a href="#services" class="btn btn-outline">Our Services</a>
+          </div>
         </div>
       </div>
-    </div>
+    </section>
 
-    <div id="contact" class="section" style="background-color: #edf2f7;">
+    <section class="section" id="about">
       <div class="container">
-        <h2>Contact Us</h2>
-        <p style="margin-bottom: 2rem;">We'd love to hear from you. Get in touch with our team to discuss your real estate needs.</p>
+        <div class="two-columns">
+          <div class="about-content">
+            <h2 class="section-title">Boutique Real Estate Consultancy in Denver</h2>
+            <p>At ADI Realty, we take pride in offering personalized real estate consultancy services tailored to your specific needs. Our boutique approach ensures that you receive dedicated attention and expert guidance throughout your real estate journey.</p>
+            <p>Whether you're looking for advice on property investments, management solutions, or rental services in the Denver area, our team of experienced consultants is here to help you make informed decisions.</p>
+            <a href="#contact" class="btn">Learn More About Us</a>
+          </div>
+          <div class="about-image">
+            <img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&w=700&q=80" alt="ADI Realty Consultancy">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section services" id="services">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Our Services</h2>
+        </div>
         
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
-          <div>
-            <h3 style="margin-bottom: 1rem;">Get In Touch</h3>
-            <p style="margin-bottom: 1.5rem;">
-              Whether you have questions about our services or want to schedule a consultation, our team is ready to assist you.
-            </p>
-            <div style="margin-bottom: 1rem;">
-              <strong>Address:</strong> Denver, Colorado
+        <div class="services-grid">
+          <div class="service-card">
+            <h3>Property Investment Consulting</h3>
+            <p>Expert guidance on property investments in the Denver market to maximize your returns.</p>
+          </div>
+          
+          <div class="service-card">
+            <h3>Rental Management</h3>
+            <p>Comprehensive rental property management services to optimize your rental income.</p>
+          </div>
+          
+          <div class="service-card">
+            <h3>Market Analysis</h3>
+            <p>Detailed analysis of the Denver real estate market to inform your property decisions.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Contact Us</h2>
+          <p>We'd love to hear from you. Get in touch with our team to discuss your real estate needs.</p>
+        </div>
+        
+        <div class="contact-grid">
+          <div class="contact-info">
+            <h2>Get In Touch</h2>
+            <p>Whether you have questions about our services or want to schedule a consultation, our team is ready to assist you.</p>
+            
+            <div class="contact-detail">
+              <div class="contact-icon">📍</div>
+              <div>
+                <h3>Location</h3>
+                <p>Denver, Colorado</p>
+              </div>
             </div>
-            <div style="margin-bottom: 1rem;">
-              <strong>Email:</strong> <a href="mailto:info@adirealty.com" style="color: #4a6da7;">info@adirealty.com</a>
+            
+            <div class="contact-detail">
+              <div class="contact-icon">✉️</div>
+              <div>
+                <h3>Email</h3>
+                <a href="mailto:info@adirealty.com" style="color: var(--primary); text-decoration: none;">info@adirealty.com</a>
+              </div>
             </div>
           </div>
           
-          <form action="https://formsubmit.co/info@adirealty.com" method="POST" style="background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
-            <div style="margin-bottom: 1rem;">
-              <label for="name" style="display: block; margin-bottom: 0.5rem;">Name</label>
-              <input type="text" id="name" name="name" required style="width: 100%; padding: 0.5rem; border: 1px solid #ddd; border-radius: 4px;">
-            </div>
-            <div style="margin-bottom: 1rem;">
-              <label for="email" style="display: block; margin-bottom: 0.5rem;">Email</label>
-              <input type="email" id="email" name="email" required style="width: 100%; padding: 0.5rem; border: 1px solid #ddd; border-radius: 4px;">
-            </div>
-            <div style="margin-bottom: 1rem;">
-              <label for="message" style="display: block; margin-bottom: 0.5rem;">Message</label>
-              <textarea id="message" name="message" rows="4" required style="width: 100%; padding: 0.5rem; border: 1px solid #ddd; border-radius: 4px;"></textarea>
+          <form action="https://formsubmit.co/info@adirealty.com" method="POST" class="contact-form">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" class="form-control" required>
             </div>
             
-            <!-- Optional: Hidden fields for customization -->
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" class="form-control" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" class="form-control" rows="4" required></textarea>
+            </div>
+            
+            <!-- Hidden fields for customization -->
             <input type="hidden" name="_subject" value="New inquiry from ADI Realty website">
             <input type="hidden" name="_next" value="https://adirealty.com/thank-you.html">
             <input type="hidden" name="_template" value="table">
             
-            <button type="submit" class="btn" style="margin-top: 1rem;">Send Message</button>
+            <button type="submit" class="btn" style="width: 100%;">Send Message</button>
           </form>
         </div>
       </div>
-    </div>
+    </section>
 
     <footer>
       <div class="container">
-        <div style="margin-bottom: 1.5rem;">
-          <img src="images/adi-realty-logo.png" alt="ADI Realty Logo" style="height: 60px; width: auto;">
+        <div class="footer-logo">
+          <img src="images/adi-realty-logo.png" alt="ADI Realty Logo">
         </div>
-        <p>Denver, Colorado</p>
-        <p>Email: info@adirealty.com</p>
+        <div class="footer-info">
+          <p>Denver, Colorado</p>
+          <p>Email: info@adirealty.com</p>
+          <p>&copy; 2023 ADI Realty. All rights reserved.</p>
+        </div>
       </div>
     </footer>
+
+    <script>
+      // Mobile menu toggle
+      const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+      const mobileMenu = document.getElementById('mobileMenu');
+      
+      mobileMenuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('active');
+      });
+      
+      // Header scroll effect
+      const header = document.getElementById('header');
+      
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+          header.classList.add('scrolled');
+        } else {
+          header.classList.remove('scrolled');
+        }
+      });
+      
+      // Close mobile menu when clicking outside
+      document.addEventListener('click', (e) => {
+        if (!mobileMenu.contains(e.target) && e.target !== mobileMenuBtn) {
+          mobileMenu.classList.remove('active');
+        }
+      });
+    </script>
   </body>
 </html>
