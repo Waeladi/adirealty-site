@@ -19,4 +19,9 @@ export default defineConfig(({ mode }) => ({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  // For custom domain:
+  base: '/',
+
+  // If you're deploying to username.github.io/repo-name
+  // base: '/repo-name/',
 }));
