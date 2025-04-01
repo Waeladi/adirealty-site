@@ -23,7 +23,7 @@ const Header = () => {
             <img 
               src="/lovable-uploads/c646b77d-08ac-4ddb-b58b-9f951656a5e1.png" 
               alt="ADI Realty Logo" 
-              className="h-10 md:h-12"
+              className="h-12 md:h-16"
             />
           </Link>
 

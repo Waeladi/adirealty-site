@@ -94,8 +94,8 @@ const About = () => {
           <div className="flex flex-col md:flex-row gap-12 items-center">
             <div className="md:w-1/2">
               <img 
-                src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=700&q=80" 
-                alt="Denver skyline" 
+                src="https://images.unsplash.com/photo-1460317442991-0ec209397118?auto=format&fit=crop&w=700&q=80" 
+                alt="Denver real estate" 
                 className="rounded-lg shadow-lg object-cover w-full h-96"
               />
             </div>

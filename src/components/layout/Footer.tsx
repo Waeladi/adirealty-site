@@ -15,7 +15,7 @@ const Footer = () => {
               <img 
                 src="/lovable-uploads/c646b77d-08ac-4ddb-b58b-9f951656a5e1.png" 
                 alt="ADI Realty Logo" 
-                className="h-10"
+                className="h-14"
               />
             </div>
             <p className="text-gray-300 mb-4">
